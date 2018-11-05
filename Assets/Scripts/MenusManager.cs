@@ -2,23 +2,31 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class MenusManager : MonoBehaviour {
 
-    public static bool GameIsPaused = false;
     public GameObject pauseMenu;
     public AudioSource background;
     public AudioSource menusMusic;
+    public Button muteButton;
+    public Sprite musicOnImage;
+    public Sprite musicOffImage;
+    private bool muted;
+    private bool GameIsPaused;
+
+    private void Start()
+    {
+        muted = false;
+        GameIsPaused = false;
+    }
 
     // Update is called once per frame
     void Update () {
-
-
         if (Input.GetKeyDown(KeyCode.Escape))
         {
             PauseMenu();
         }
-
     }
 
     public void PauseMenu()
@@ -58,7 +66,34 @@ public class MenusManager : MonoBehaviour {
         //gameoverMenu.SetActive(false);
     }
 
-    public void Quit() {
+    public void Quit()
+    {
         Application.Quit();
+    }
+
+    public void controlMusic()
+    {
+        if (muted)
+        {
+            UnMute();
+        }
+        else
+        {
+            Mute();
+        }
+    }
+
+    public void Mute()
+    {
+        muteButton.GetComponent<Image>().sprite = musicOffImage;
+        muted = true;
+        AudioListener.volume = 0.0f;
+    }
+
+    public void UnMute()
+    {
+        muteButton.GetComponent<Image>().sprite = musicOnImage;
+        muted = false;
+        AudioListener.volume = 1.0f;
     }
 }
