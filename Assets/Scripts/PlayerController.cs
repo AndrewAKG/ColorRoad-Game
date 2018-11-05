@@ -138,11 +138,22 @@ public class PlayerController : MonoBehaviour {
                     Time.timeScale = 0f;
                     background.Stop();
                     menusMusic.Play();
+                    SaveScore();
                 }
             }
 
             Destroy(hit.gameObject);
             collectableManager.collectablesSoFar--;
+        }
+    }
+
+    private void SaveScore()
+    {
+        int HighestScoreInPrefs = PlayerPrefs.GetInt("HighScore");
+
+        if(highestScoreSoFar > HighestScoreInPrefs)
+        {
+            PlayerPrefs.SetInt("HighScore", highestScoreSoFar);
         }
     }
 }
