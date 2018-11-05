@@ -71,6 +71,11 @@ public class MenusManager : MonoBehaviour {
         //gameoverMenu.SetActive(false);
     }
 
+    public void ExitToMainMenu()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
+
     public void Quit()
     {
         Application.Quit();
