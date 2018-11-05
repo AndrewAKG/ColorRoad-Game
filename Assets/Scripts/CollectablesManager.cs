@@ -24,7 +24,7 @@ public class CollectablesManager : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if(collectablesSoFar < amountOfCollectables)
+        while(collectablesSoFar < amountOfCollectables)
         {
             SpawnCollectable();
         }
