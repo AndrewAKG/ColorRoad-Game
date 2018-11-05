@@ -27,6 +27,11 @@ public class MenusManager : MonoBehaviour {
         {
             PauseMenu();
         }
+
+        if (Input.GetKeyDown(KeyCode.M))
+        {
+            ControlMusic();
+        }
     }
 
     public void PauseMenu()
@@ -71,7 +76,7 @@ public class MenusManager : MonoBehaviour {
         Application.Quit();
     }
 
-    public void controlMusic()
+    public void ControlMusic()
     {
         if (muted)
         {

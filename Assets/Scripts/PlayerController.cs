@@ -29,6 +29,7 @@ public class PlayerController : MonoBehaviour {
     private int speedCounter = 0;
     private int score = 0;
     private int highestScoreSoFar = 0;
+    private bool androidPlatform;
 
     // Use this for initialization
     void Start () {
@@ -37,6 +38,15 @@ public class PlayerController : MonoBehaviour {
         scoreText.SetText("Score: " + score);
         playerSphere = GameObject.FindGameObjectWithTag("PlayerColor");
         playerColor = playerSphere.GetComponent<Renderer>().material.color;
+
+        if (Application.platform == RuntimePlatform.Android)
+        {
+            androidPlatform = true;
+        }
+        else
+        {
+            androidPlatform = false;
+        }
     }
 	
 	// Update is called once per frame
@@ -55,9 +65,16 @@ public class PlayerController : MonoBehaviour {
         {
             verticalVelocity -= gravity * Time.deltaTime;
         }
-        
+
         //X
-        moveVector.x = Input.GetAxisRaw("Horizontal") * horizontalSpeed;
+        if (!androidPlatform)
+        {
+            moveVector.x = Input.GetAxisRaw("Horizontal") * horizontalSpeed;
+        }
+        else
+        {
+            moveVector.x = Input.acceleration.x * horizontalSpeed * 5;
+        }
 
         //Y
         moveVector.y = verticalVelocity;
@@ -95,7 +112,7 @@ public class PlayerController : MonoBehaviour {
                 if (speedCounter == 5)
                 {
                     forwardSpeed += 5;
-                    horizontalSpeed += 1;
+                    horizontalSpeed += 0.5f;
                     animator.speed += 0.5f;
                     speedCounter = 0;
                 }
