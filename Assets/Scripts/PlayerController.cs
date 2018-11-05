@@ -16,6 +16,7 @@ public class PlayerController : MonoBehaviour {
     public AudioSource colorChange;
     public AudioSource background;
     public AudioSource menusMusic;
+    public Button pauseButton;
 
     private Animator animator;
     private CharacterController controller;
@@ -133,6 +134,7 @@ public class PlayerController : MonoBehaviour {
                     isDead = true;
                     highestScoreText.SetText("Score: " + highestScoreSoFar);
                     gameoverMenu.SetActive(true);
+                    pauseButton.enabled = false;
                     Time.timeScale = 0f;
                     background.Stop();
                     menusMusic.Play();

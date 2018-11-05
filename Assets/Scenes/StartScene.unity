@@ -404,8 +404,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 1.3099976, y: -0.69000244}
-  m_SizeDelta: {x: -21.98, y: -200.11}
+  m_AnchoredPosition: {x: 1.3099976, y: -12.6}
+  m_SizeDelta: {x: -22, y: -176.3}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &60099504
 MonoBehaviour:
@@ -426,7 +426,10 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: Credits go to GrassRoadRace Unity asset and TextMesh Pro UI asset.
+  m_text: "Game Assets:\nGrassRoadRace Unity Store Asset , Supercyan Character Pack
+    Free Sample Unity Store Asset and TextMesh Pro Unity UI Asset.\n\nSounds:\nMenus
+    background music: https://www.youtube.com/watch?v=gV9ts8IFMPQ \nGame background
+    music: https://www.youtube.com/watch?v=zY-8UFOy3NA\n\n"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
   m_sharedMaterial: {fileID: 2164040, guid: 5302535af1044152a457ed104f1f4b91, type: 2}
@@ -492,15 +495,15 @@ MonoBehaviour:
   m_firstVisibleCharacter: 0
   m_useMaxVisibleDescender: 1
   m_pageToDisplay: 1
-  m_margin: {x: 0, y: 0, z: 0, w: 0}
+  m_margin: {x: 0, y: 0, z: 0, w: -1.0842965}
   m_textInfo:
     textComponent: {fileID: 0}
-    characterCount: 66
+    characterCount: 281
     spriteCount: 0
-    spaceCount: 10
-    wordCount: 11
+    spaceCount: 33
+    wordCount: 41
     linkCount: 0
-    lineCount: 1
+    lineCount: 8
     pageCount: 1
     materialCount: 1
   m_havePropertiesChanged: 0
@@ -2025,7 +2028,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &745655978
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4850,7 +4853,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2102095495
 RectTransform:
   m_ObjectHideFlags: 0
