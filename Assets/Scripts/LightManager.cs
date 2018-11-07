@@ -34,7 +34,7 @@ public class LightManager : MonoBehaviour {
         light = Instantiate(lightPrefabs[randomIndex]) as GameObject;
         light.transform.SetParent(transform);
         light.transform.position = new Vector3(spawnX, 5.0f, spawnZ);
-        spawnZ += 100;
+        spawnZ += 200;
         lightsSoFar++;
     }
 }

@@ -1,6 +1,4 @@
-﻿using System.Collections;
-using System.Collections.Generic;
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 
@@ -9,7 +7,6 @@ public class PlayerController : MonoBehaviour {
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI highestScoreText;
     public CollectablesManager collectableManager;
-    public bool isDead = false;
     public GameObject gameoverMenu;
     public AudioSource matchingHit;
     public AudioSource nonmatchingHit;
@@ -17,16 +14,17 @@ public class PlayerController : MonoBehaviour {
     public AudioSource background;
     public AudioSource menusMusic;
     public Button pauseButton;
+    public bool isDead = false;
 
     private Animator animator;
     private CharacterController controller;
-    private float forwardSpeed = 5.0f;
-    private float horizontalSpeed = 5.0f;
-    private Vector3 moveVector;
-    private float verticalVelocity = 0.0f;
-    private float gravity = 12.0f;
     private GameObject playerSphere;
     private Color playerColor;
+    private Vector3 moveVector;
+    private float forwardSpeed = 5.0f;
+    private float horizontalSpeed = 5.0f;
+    private float verticalVelocity = 0.0f;
+    private float gravity = 12.0f;
     private int speedCounter = 0;
     private int score = 0;
     private int highestScoreSoFar = 0;
@@ -68,24 +66,23 @@ public class PlayerController : MonoBehaviour {
         }
 
         //X
-        if (!androidPlatform)
-        {
-            moveVector.x = Input.GetAxisRaw("Horizontal") * horizontalSpeed;
-        }
-        else
-        {
-            moveVector.x = Input.acceleration.x * horizontalSpeed * 5;
-        }
-
+        moveVector.x = Input.GetAxisRaw("Horizontal") * horizontalSpeed;
+        
         //Y
         moveVector.y = verticalVelocity;
 
         //Z
         moveVector.z = forwardSpeed;
 
-        controller.Move(moveVector * Time.deltaTime);
-
-	}
+        if (!androidPlatform)
+        {
+            controller.Move(moveVector * Time.deltaTime);
+        }
+        else
+        {
+            controller.Move(new Vector3(Input.acceleration.x * 0.5f, moveVector.y * Time.deltaTime, moveVector.z * Time.deltaTime));
+        }
+    }
 
     private void OnTriggerEnter(Collider other)
     {
@@ -128,6 +125,7 @@ public class PlayerController : MonoBehaviour {
                 nonmatchingHit.Play();
                 score /= 2;
                 scoreText.SetText("Score: " + score);
+                speedCounter = 0;
 
                 if(score == 0)
                 {

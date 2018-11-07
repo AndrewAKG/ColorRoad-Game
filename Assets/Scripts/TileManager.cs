@@ -5,15 +5,16 @@ using UnityEngine;
 public class TileManager : MonoBehaviour {
 
     public Transform player;
-
     public GameObject[] tilePrefabs;
+
     private float spawnZ = 0.0f;
-    private float tileLength = 7.4f;
-    private int amountOfTiles = 20;
+    private float tileLength = 7.6f;
+    private int amountOfTiles = 25;
     private float safeZone = 7.0f;
     private List<GameObject> activeTiles;
     private int randomIndex = 1;
     private int bridgeCount = 0;
+    private int tileIndex = 0;
 
 	// Use this for initialization
 	void Awake () {
@@ -28,10 +29,20 @@ public class TileManager : MonoBehaviour {
 	void Update () {
 		if(player.transform.position.z - safeZone > (spawnZ - amountOfTiles * tileLength))
         {
-            SpawnTile();
-            DeleteTile();
+            UpdateTilePosition();
         }
 	}
+
+    void UpdateTilePosition()
+    {
+        activeTiles[tileIndex].transform.Translate(new Vector3(0, 0, amountOfTiles * tileLength));
+        tileIndex++;
+        spawnZ += tileLength;
+        if (tileIndex == activeTiles.Count)
+        {
+            tileIndex = 0;
+        }
+    }
 
     void SpawnTile()
     {
