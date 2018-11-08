@@ -9,7 +9,7 @@ public class TileManager : MonoBehaviour {
 
     private float spawnZ = 0.0f;
     private float tileLength = 7.6f;
-    private int amountOfTiles = 25;
+    private int amountOfTiles = 20;
     private float safeZone = 7.0f;
     private List<GameObject> activeTiles;
     private int randomIndex = 1;
