@@ -67,7 +67,7 @@ public class PlayerController : MonoBehaviour {
 
         //X
         moveVector.x = Input.GetAxisRaw("Horizontal") * horizontalSpeed;
-        
+
         //Y
         moveVector.y = verticalVelocity;
 
